@@ -1,5 +1,8 @@
 class Solution {
-
+    /* 
+      * 双循环遍历法
+      *
+     */
     public static int[] twoSum(int[] nums, int target) {
 
         int len = nums.length;
@@ -18,7 +21,7 @@ class Solution {
                 }
             }
         }
-
+        /* 容量为0的数组即空数组 */
         return new int[0];
     }
 

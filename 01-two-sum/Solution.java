@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 class Solution {
     /* 
       * 双循环遍历法
@@ -24,6 +26,31 @@ class Solution {
         /* 容量为0的数组即空数组 */
         return new int[0];
     }
+    
+    /* 
+        byte 8bit
+        int  4bytes
+     */
+    public static int[] twoSumHashMap(int[] nums,int target) {
+
+        HashMap<Integer, Integer> hashtable = new HashMap<Integer,Integer>();
+
+
+        for(int i = 0; i < nums.length; i++) {
+
+           int key = target - nums[i];
+
+           if(hashtable.containsKey(key)) {
+
+            return new int[]{i,hashtable.get(key)};
+
+           } 
+           /*  存储已经遍历过的值  */
+           hashtable.put(nums[i], i);
+        }
+
+        return new int[0];
+    }
 
     public static void main(String[] args) {
 
@@ -31,6 +58,8 @@ class Solution {
         int target = 6;
         
         twoSum(ints, target);
+        int[] res = twoSumHashMap(ints, target);
+       
 
     }
 }
